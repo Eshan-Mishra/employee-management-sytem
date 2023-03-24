@@ -51,16 +51,16 @@ def Delete_Employee():
         else:
             print("Task Aborted!")    
  
- def Modify_Employee():
-     p=int(input("Enter the employee code to be Modified : "))
-     cur.execute("select * from Employee where pat_id=%s",(p,))
-     a=cur.fetchone()
-     if a==None:
+def Modify_Employee():
+    p=int(input("Enter the employee code to be Modified : "))
+    cur.execute("select * from Employee where pat_id=%s",(p,))
+    a=cur.fetchone()
+    if a==None:
          print("Record not found")
-     else:
-         print(tabulate(data,headers=['emp_code','emp_name', 'emp_ph', 'emp_dept', 'emp_date_of_join', 'emp_add'],tablefnt='psql'))
-         print(a)
-         P=input("Do you want to modify this record y/n:")
+    else:
+        print(tabulate(data,headers=['emp_code','emp_name', 'emp_ph', 'emp_dept', 'emp_date_of_join', 'emp_add'],tablefnt='psql'))
+        print(a)
+        P=input("Do you want to modify this record y/n:")
         if P=="y" or P=="Y":
             name=input("Enter the New Employee Name or press enter to skip:")
             if name=="":
@@ -87,7 +87,6 @@ def Delete_Employee():
                 pass
             else:
                 cur.execute("update Employee set emp_add=%s where emp_code=%s",(address,p))
-            
         else:
             print("Task Aborted!")
 
@@ -234,13 +233,13 @@ def Delete_payroll_list():
     m=int(input("Enter the Employee code of the employee to be deleted : "))
     cur.execute("select * from payroll where emp_code=%s",(m,) )
     a=cur.fetchone()
-        print(a)
-        c=input("Do you want to delete this record y/n : ")
-        if c=="y" or c=="Y":
+    print(a)
+    c=input("Do you want to delete this record y/n : ")
+    if c=="y" or c=="Y":
             cur.execute("Delete from payroll where emp_code=%s",(m,))
             con.commit()
             print("Record Deleted Successfully.")
-        else:
+    else:
             print("Task Aborted!")
 
 def Modify_payroll_list():
@@ -269,7 +268,7 @@ def Modify_payroll_list():
                 pass
             else:
                 cur.execute("update payroll set salary_from=%s where emp_code=%s",(salary_from,p))
-            salary_to =int(input("Enter Employee salary till or press enter to skip : ")
+            salary_to =int(input("Enter Employee salary till or press enter to skip : "))
             if salary_to=="":
                 pass
             else:
@@ -315,13 +314,13 @@ def Delete_Salary():
     m=int(input("Enter the Employee code of the employee to be deleted : "))
     cur.execute("select * from Salary where emp_code=%s",(m,) )
     a=cur.fetchone()
-        print(a)
-        c=input("Do you want to delete this record y/n : ")
-        if c=="y" or c=="Y":
+    print(a)
+    c=input("Do you want to delete this record y/n : ")
+    if c=="y" or c=="Y":
             cur.execute("Delete from payroll where emp_code=%s",(m,))
             con.commit()
             print("Record Deleted Successfully.")
-        else:
+    else:
             print("Task Aborted!")
 
 def Modify_Salary():
@@ -344,13 +343,13 @@ def Modify_Salary():
             if year=="":
                 pass
             else:
-                cur.execute("update Salary set y=%s where emp_code=%s",(department],p))
+                cur.execute("update Salary set y=%s where emp_code=%s",(department),p)
             salary_from=input("Enter Employee salary from or press enter to skip : ")
             if salary_from=="":
                 pass
             else:
                 cur.execute("update payroll set salary_from=%s where emp_code=%s",(salary_from,p))
-            salary_to=int(input("Enter Employee salary till or press enter to skip : ")
+            salary_to=int(input("Enter Employee salary till or press enter to skip : "))
             if salary_to=="":
                 pass
             else:
@@ -406,13 +405,13 @@ def Delete_Allowance():
     m=int(input("Enter the Employee code of the employee whose Allowance to be deleted : "))
     cur.execute("select * from Allowance where emp_code=%s",(m,) )
     a=cur.fetchone()
-        print(a)
-        c=input("Do you want to delete this record y/n : ")
-        if c=="y" or c=="Y":
+    print(a)
+    c=input("Do you want to delete this record y/n : ")
+    if c=="y" or c=="Y":
             cur.execute("Delete from Allowance where emp_code=%s",(m,))
             con.commit()
             print("Record Deleted Successfully.")
-        else:
+    else:
             print("Task Aborted!")
 
 def Modify_Allowance():
@@ -441,7 +440,7 @@ def Modify_Allowance():
                 pass
             else:
                 cur.execute("update Allowance set SA=%s where emp_code=%s",(SA,p))
-            TA =int(input("Enter the Third Allowance or press enter to skip : ")
+            TA =int(input("Enter the Third Allowance or press enter to skip : "))
             if TA=="":
                 pass
             else:
@@ -620,7 +619,7 @@ elif ch==5:
         print("="*142)
     pass
 elif ch==6:
-    break
+    pass
 else:
     print("Enter The Correct Choice!")
 print("#*"*142)
